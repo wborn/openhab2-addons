@@ -34,15 +34,15 @@ public class Thermostat extends BaseNestDevice {
     private boolean hasLeaf;
     @SerializedName("temperature_scale")
     private String tempScale;
-    @SerializedName("ambient_temperature_c")
+    @SerializedName("ambient_temperature_f")
     private Double ambientTemperature;
     @SerializedName("humidity")
     private Integer humidity;
-    @SerializedName("target_temperature_c")
+    @SerializedName("target_temperature_f")
     private Double targetTemperature;
-    @SerializedName("target_temperature_high_c")
+    @SerializedName("target_temperature_high_f")
     private Double targetTemperatureHigh;
-    @SerializedName("target_temperature_low_c")
+    @SerializedName("target_temperature_low_f")
     private Double targetTemperatureLow;
     @SerializedName("hvac_mode")
     private Mode mode;
@@ -52,9 +52,9 @@ public class Thermostat extends BaseNestDevice {
     private State state;
     @SerializedName("is_locked")
     private boolean isLocked;
-    @SerializedName("locked_temp_max_c")
+    @SerializedName("locked_temp_max_f")
     private Double lockedTemperatureHigh;
-    @SerializedName("locked_temp_min_c")
+    @SerializedName("locked_temp_min_f")
     private Double lockedTemperatureLow;
     @SerializedName("sunlight_correction_enabled")
     private boolean sunlightCorrectionEnabled;
