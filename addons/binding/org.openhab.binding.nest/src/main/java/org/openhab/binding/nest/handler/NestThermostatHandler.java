@@ -117,13 +117,13 @@ public class NestThermostatHandler extends NestBaseHandler<Thermostat> {
             }
         } else if (CHANNEL_MAX_SET_POINT.equals(channelUID.getId())) {
             if (command instanceof DecimalType) {
-                // Update maximum set point (Celsius) to the command value
-                addUpdateRequest("target_temperature_high_c", ((DecimalType) command).floatValue());
+                // Update maximum set point (Fahrenheit) to the command value
+                addUpdateRequest("target_temperature_high_f", roundedTemperature(((DecimalType) command).floatValue()));
             }
         } else if (CHANNEL_MIN_SET_POINT.equals(channelUID.getId())) {
             if (command instanceof DecimalType) {
-                // Update minimum set point (Celsius) to the command value
-                addUpdateRequest("target_temperature_low_c", ((DecimalType) command).floatValue());
+                // Update minimum set point (Fahrenheit) to the command value
+                addUpdateRequest("target_temperature_low_f", roundedTemperature(((DecimalType) command).floatValue()));
             }
         } else if (CHANNEL_MODE.equals(channelUID.getId())) {
             if (command instanceof StringType) {
@@ -132,8 +132,8 @@ public class NestThermostatHandler extends NestBaseHandler<Thermostat> {
             }
         } else if (CHANNEL_SET_POINT.equals(channelUID.getId())) {
             if (command instanceof DecimalType) {
-                // Update maximum set point (Celsius) to the command value
-                addUpdateRequest("target_temperature_c", ((DecimalType) command).floatValue());
+                // Update maximum set point (Fahrenheit) to the command value
+                addUpdateRequest("target_temperature_f", roundedTemperature(((DecimalType) command).floatValue()));
             }
         }
     }
@@ -155,6 +155,14 @@ public class NestThermostatHandler extends NestBaseHandler<Thermostat> {
         updateChannels(thermostat);
         updateStatus(thermostat.isOnline() ? ThingStatus.ONLINE : ThingStatus.OFFLINE);
         updateProperty(PROPERTY_FIRMWARE_VERSION, thermostat.getSoftwareVersion());
+    }
+    
+    private float roundedTemperature(float floatValue)
+            throws IllegalArgumentException {
+        BigDecimal value = BigDecimal.valueOf(floatValue);
+        BigDecimal increment = new BigDecimal("1.0");
+        BigDecimal divided = value.divide(increment, 0, RoundingMode.HALF_UP);
+        return divided.multiply(increment).floatValue();
     }
 
 }
