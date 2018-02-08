@@ -119,13 +119,13 @@ public class NestThermostatHandler extends NestBaseHandler<Thermostat> {
             }
         } else if (CHANNEL_MAX_SET_POINT.equals(channelUID.getId())) {
             if (command instanceof DecimalType) {
-                // Update maximum set point (Celsius) to the command value
-                addUpdateRequest("target_temperature_high_c", ((DecimalType) command).floatValue());
+                // Update maximum set point (Fahrenheit) to the command value
+                addUpdateRequest("target_temperature_high_f", ((DecimalType) command).floatValue());
             }
         } else if (CHANNEL_MIN_SET_POINT.equals(channelUID.getId())) {
             if (command instanceof DecimalType) {
-                // Update minimum set point (Celsius) to the command value
-                addUpdateRequest("target_temperature_low_c", ((DecimalType) command).floatValue());
+                // Update minimum set point (Fahrenheit) to the command value
+                addUpdateRequest("target_temperature_low_f", ((DecimalType) command).floatValue());
             }
         } else if (CHANNEL_MODE.equals(channelUID.getId())) {
             if (command instanceof StringType) {
@@ -134,8 +134,8 @@ public class NestThermostatHandler extends NestBaseHandler<Thermostat> {
             }
         } else if (CHANNEL_SET_POINT.equals(channelUID.getId())) {
             if (command instanceof DecimalType) {
-                // Update maximum set point (Celsius) to the command value
-                addUpdateRequest("target_temperature_c", ((DecimalType) command).floatValue());
+                // Update maximum set point (Fahrenheit) to the command value
+                addUpdateRequest("target_temperature_f", ((DecimalType) command).floatValue());
             }
         }
     }
