@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.openhab.binding.newbinding.test
+Bundle-ManifestVersion: 2
+Bundle-Name: newBinding Binding Tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-SymbolicName: org.openhab.binding.newbinding.test;singleton:=true
+Bundle-Vendor: openHAB
+Bundle-Version: 2.5.0.qualifier
+Export-Package: org.openhab.binding.newbinding;uses:="org.eclipse.smarthome.test"
+Fragment-Host: org.openhab.binding.newbinding
+Import-Package: 
+ org.eclipse.jdt.annotation;resolution:=optional,
+ org.eclipse.smarthome.core.common.registry,
+ org.eclipse.smarthome.core.events,
+ org.eclipse.smarthome.core.thing,
+ org.eclipse.smarthome.core.thing.binding,
+ org.eclipse.smarthome.core.thing.binding.builder,
+ org.eclipse.smarthome.core.thing.util,
+ org.eclipse.smarthome.test.java,
+ org.eclipse.smarthome.test.storage,
+ org.hamcrest;core=split,
+ org.hamcrest.core,
+ org.junit;version="4.0.0",
+ org.mockito,
+ org.mockito.invocation,
+ org.mockito.stubbing,
+ org.osgi.framework,
+ org.osgi.service.device,
+ org.slf4j
