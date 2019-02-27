@@ -17,6 +17,7 @@ package org.openhab.binding.nest.internal.data;
  *
  * @author David Bennett - Initial contribution
  * @author Wouter Born - Extract ActivityZone object from Camera
+ * @author Wouter Born - Addition
  */
 public class ActivityZone {
 
