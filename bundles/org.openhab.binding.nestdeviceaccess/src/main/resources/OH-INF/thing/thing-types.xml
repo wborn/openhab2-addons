@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="nestdeviceaccess"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<thing-type id="nest-device-access">
+		<label>Nest Device Access</label>
+		<description>A binding to interact with Nest Device Access</description>
+		<config-description>
+			<parameter name="projectId" type="text" required="false">
+				<label>Project ID</label>
+				<description>This is the GCP Project that you created and integrated with the SDM API</description>
+			</parameter>
+			<parameter name="clientId" type="text" required="false">
+				<label>Client ID</label>
+				<description>This is the oAuth 2.0 Client ID associated with the provided Project ID</description>
+			</parameter>
+			<parameter name="clientSecret" type="text" required="false">
+				<label>Client Secret</label>
+				<description>This is the Client Secret returned when setting up your oAuth 2.0 Client ID</description>
+			</parameter>
+			<parameter name="authorizationToken" type="text" required="false">
+				<label>Authorization Token</label>
+				<description>This is the one time authorization token used to retrieve the Refresh and Access token to the SDM API</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+	<thing-type id="nest-device-doorbell">
+		<label>Nest Device DoorBell</label>
+		<description>A binding to interact with Nest Device DoorBells</description>
+		<channels>
+			<channel id="doorbellName" typeId="doorbellName-channel"/>
+		</channels>
+		<config-description>
+			<parameter name="refreshInterval" type="text" required="true">
+				<label>Refresh Interval</label>
+				<description>This is refresh interval in seconds to update the nest device information</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+	<channel-type id="doorbellName-channel">
+		<item-type>String</item-type>
+		<label>DoorBell Name</label>
+		<description>DoorBell Name</description>
+	</channel-type>
+
+	<thing-type id="nest-device-thermostat">
+		<label>Nest Device Thermostat</label>
+		<description>A binding to interact with Nest Device Thermostats</description>
+		<channels>
+			<channel id="thermostatName" typeId="thermostatName-channel"/>
+			<channel id="thermostatHumidityPercent" typeId="thermostatHumidityPercent-channel"/>
+			<channel id="thermostatAmbientTemperature" typeId="thermostatAmbientTemperature-channel"/>
+			<channel id="thermostatTemperatureHeat" typeId="thermostatTemperatureHeat-channel"/>
+			<channel id="thermostatTemperatureCool" typeId="thermostatTemperatureCool-channel"/>
+			<channel id="thermostatCurrentMode" typeId="thermostatCurrentMode-channel"/>
+			<channel id="thermostatCurrentEcoMode" typeId="thermostatCurrentEcoMode-channel"/>
+			<channel id="thermostatTargetTemperature" typeId="thermostatTargetTemperature-channel"/>
+			<channel id="thermostatMinimumTemperature" typeId="thermostatMinimumTemperature-channel"/>
+			<channel id="thermostatMaximumTemperature" typeId="thermostatMaximumTemperature-channel"/>
+			<channel id="thermostatScaleSetting" typeId="thermostatScaleSetting-channel"/>
+		</channels>
+		<config-description>
+			<parameter name="refreshInterval" type="text" required="true">
+				<label>Refresh Interval</label>
+				<description>This is refresh interval in seconds to update the nest device information</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+	<channel-type id="thermostatName-channel">
+		<item-type>String</item-type>
+		<label>Thermostat Name</label>
+		<description>Thermostat Name</description>
+	</channel-type>
+	<channel-type id="thermostatHumidityPercent-channel">
+		<item-type>Number:Length</item-type>
+		<label>Humidity Percentage</label>
+		<description>Lists the current humidity percentage from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatAmbientTemperature-channel">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Ambient Temperature</label>
+		<description>Lists the current ambient temperature from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatTemperatureCool-channel">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Cool Temperature Setting</label>
+		<description>Lists the Cool Temperature Setting from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatTemperatureHeat-channel">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Heat Temperature Setting</label>
+		<description>Lists the Heat Temperature Setting from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatTargetTemperature-channel">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Target Temperature Setting</label>
+		<description>Lists the Target Temperature Setting from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatMinimumTemperature-channel">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Minimum Temperature Setting</label>
+		<description>Lists the Minimum Temperature Setting from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatMaximumTemperature-channel">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Maximum Temperature Setting</label>
+		<description>Lists the Maximum Temperature Setting from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatCurrentMode-channel">
+		<item-type>String</item-type>
+		<label>Current Mode</label>
+		<description>Lists the current mode from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatScaleSetting-channel">
+		<item-type>String</item-type>
+		<label>Scale Setting</label>
+		<description>Lists the scale setting from the thermostat</description>
+	</channel-type>
+	<channel-type id="thermostatCurrentEcoMode-channel">
+		<item-type>String</item-type>
+		<label>Current Eco Mode</label>
+		<description>Lists the current Eco mode from the thermostat</description>
+	</channel-type>
+
+</thing:thing-descriptions>
